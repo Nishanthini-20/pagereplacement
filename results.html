@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Replacement Algorithms Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: lightseagreen;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            overflow-y: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h3 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .page-faults {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .yes {
+            color: green;
+        }
+
+        .no {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Page Replacement Algorithms Results</h1>
+    <div>
+        <h3>FIFO</h3>
+        <table id="fifoTable">
+            <thead>
+            <tr>
+                <th>Page</th>
+                <th>Memory</th>
+                <th>Page Fault</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="page-faults" id="fifoFaults"></div>
+    </div>
+    <div>
+        <h3>LRU</h3>
+        <table id="lruTable">
+            <thead>
+            <tr>
+                <th>Page</th>
+                <th>Memory</th>
+                <th>Page Fault</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="page-faults" id="lruFaults"></div>
+    </div>
+    <div>
+        <h3>Optimal</h3>
+        <table id="optimalTable">
+            <thead>
+            <tr>
+                <th>Page</th>
+                <th>Memory</th>
+                <th>Page Fault</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="page-faults" id="optimalFaults"></div>
+    </div>
+    <a href="index.html" class="back-button">Go Back</a>
+</div>
+<script src="results.js"></script>
+</body>
+</html>
