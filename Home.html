@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Replacement Algorithms Input</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/rpa-concept-with-blurry-hand-touching-screen_23-2149311914.jpg?t=st=1718424147~exp=1718427747~hmac=582178fd3c3cda15e69a5fb8527418b82b9419e6fd94dd3040608550f09ed32a&w=996');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"], input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Page Replacement Algorithm</h1>
+    <form id="inputForm">
+        <div>
+            <label for="pages">Enter Page Sequence (comma-separated):</label><br>
+            <input type="text" id="pages" placeholder="eg: 1,2,3,4,5,6" required>
+        </div>
+        <div>
+            <label for="capacity">Enter Capacity:</label><br>
+            <input type="number" id="capacity" placeholder="eg: 1" min="1" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<script>
+    document.getElementById('inputForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const pagesInput = document.getElementById('pages').value.trim();
+        const pagesArray = pagesInput.split(',').map(page => page.trim());
+        const pages = pagesArray.map(Number);
+        const capacity = parseInt(document.getElementById('capacity').value);
+
+        if (pages.some(isNaN) || !pagesInput) {
+            alert('Please enter a valid comma-separated sequence of numbers for pages.');
+            return;
+        }
+
+        if (isNaN(capacity) || capacity < 1) {
+            alert('Please enter a valid positive integer for capacity.');
+            return;
+        }
+
+        localStorage.setItem('pages', JSON.stringify(pages));
+        localStorage.setItem('capacity', capacity);
+
+        window.location.href = 'results.html';
+    });
+</script>
+</body>
+</html>
